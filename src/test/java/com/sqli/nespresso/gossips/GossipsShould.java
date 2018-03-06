@@ -28,7 +28,7 @@ public class GossipsShould {
 
 	}
 
-	/*@Test
+	@Test
 	public void beRetainedIfRecipientHasAlreadyAGossip() {
 
 		Gossips gossips = new Gossips("Mr White", "Mr Black", "Mr Blue")
@@ -36,25 +36,25 @@ public class GossipsShould {
 
 		gossips.say("Hello").to("White");
 		gossips.say("Secret").to("Blue");
-
-		assertThat(gossips.ask("White")).isEqualTo("Hello");
-		assertThat(gossips.ask("Blue")).isEqualTo("Secret");
-
-		gossips.spread();
-
-		assertThat(gossips.ask("White")).isEqualTo("");
-		assertThat(gossips.ask("Black")).isEqualTo("Hello");
-		assertThat(gossips.ask("Blue")).isEqualTo("Secret");
+		
+		assertEquals(gossips.ask("White"), "Hello");
+		assertEquals(gossips.ask("Blue"), "Secret");
 
 		gossips.spread();
+		
+		assertEquals(gossips.ask("White"), "");
+		assertEquals(gossips.ask("Black"), "Hello");
+		assertEquals(gossips.ask("Blue"), "Secret");
 
-		assertThat(gossips.ask("White")).isEqualTo("");
-		assertThat(gossips.ask("Black")).isEqualTo("Secret");
-		assertThat(gossips.ask("Blue")).isEqualTo("");
+		gossips.spread();
+		
+		assertEquals(gossips.ask("White"), "");
+		assertEquals(gossips.ask("Black"), "Secret");
+		assertEquals(gossips.ask("Blue"), "");
 
 	}
 
-	@Test
+	/*@Test
 	public void beRememberedByDoctors() {
 
 		Gossips gossips = new Gossips("Mr White", "Mr Black", "Dr Brown",
